@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package im.vector.opusencoder.configuration
+package io.element.android.opusencoder.configuration
 
 /**
  * Sampling rate of the input signal in Hz.

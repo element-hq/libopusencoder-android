@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package im.vector.opusencoder
+package io.element.android.opusencoder
 
 import android.util.Log
 import androidx.annotation.IntRange
-import im.vector.opusencoder.configuration.SampleRate
+import io.element.android.opusencoder.configuration.SampleRate
 
 /**
  * JNI bridge to CodecOggOpus in the native opuscodec library.
@@ -44,6 +44,7 @@ class OggOpusEncoder {
     fun init(filePath: String, sampleRate: SampleRate): Int {
         return init(filePath, sampleRate.value)
     }
+
     private external fun init(filePath: String, sampleRate: Int): Int
 
     /**
@@ -57,6 +58,7 @@ class OggOpusEncoder {
     fun encode(shorts: ShortArray, samplesPerChannel: Int): Int {
         return writeFrame(shorts, samplesPerChannel)
     }
+
     private external fun writeFrame(shorts: ShortArray, samplesPerChannel: Int): Int
 
     /**
@@ -65,5 +67,6 @@ class OggOpusEncoder {
     fun release() {
         encoderRelease()
     }
+
     private external fun encoderRelease()
 }
