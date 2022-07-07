@@ -7,7 +7,7 @@ Android wrapper for [libopusenc](https://opus-codec.org/docs/opus-tools/opusenc.
 Just add the following gradle dependency:
 
 ```groovy
-implementation "im.vector:opusencoder:$version"
+implementation "io.element.android:opusencoder:$version"
 ```
 
 ## How to build
