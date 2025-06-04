@@ -1,17 +1,20 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: "com.vanniktech.maven.publish"
 
 android {
-    ndkVersion '24.0.8215888'
+    ndkVersion '28.1.13356709'
 
-    compileSdkVersion 31
+    compileSdkVersion 33
 
-    buildToolsVersion "31.0.0"
+    buildToolsVersion "35.0.0"
 
     defaultConfig {
-        minSdkVersion 18
-        targetSdkVersion 31
+        minSdkVersion 21
+        targetSdkVersion 33
+        namespace = "io.element.android.opusencoder"
 
         externalNativeBuild {
             cmake {
@@ -41,6 +44,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+}
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 }
 
 dependencies {
