@@ -7,13 +7,13 @@ apply plugin: "com.vanniktech.maven.publish"
 android {
     ndkVersion '28.1.13356709'
 
-    compileSdkVersion 33
+    compileSdkVersion 35
 
     buildToolsVersion "35.0.0"
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 33
+        targetSdkVersion 35
         namespace = "io.element.android.opusencoder"
 
         externalNativeBuild {
