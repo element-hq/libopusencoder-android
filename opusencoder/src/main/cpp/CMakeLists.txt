@@ -36,6 +36,15 @@ add_library(opuscodec
         codec/CodecOggOpus.cpp
         opuscodec.cpp)
 
+# Request 16KiB alignment for generated shared objects.
+set(PAGE_ALIGN_FLAG "-Wl,-z,max-page-size=0x4000")
+
+if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.13" AND COMMAND target_link_options)
+    target_link_options(opuscodec PRIVATE ${PAGE_ALIGN_FLAG})
+else()
+    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${PAGE_ALIGN_FLAG}")
+endif()
+
 target_include_directories(opuscodec PRIVATE
         ${LIBOPUS_DIR}/include
         ${LIBOPUSENC_DIR}/include)
